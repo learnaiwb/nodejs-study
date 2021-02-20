@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 所有element元素都使用： 
+        clientWidth 可见宽度 包括内容区和内边距，不包括边框
+        clientHeight 可见高度 包括内容区和内边距，不包括边框
+        offsetWidth 获取元素整个的宽度 包括边框
+        offsetHeight 获取原色的高度 包括边框 
+        offsetParent 可以用来获取当前元素的定位元素，会获得里当前元素最近的开启了定位的祖先元素，如果祖先元素都没有
+            开启定位，则返回body
+            offsetLeft 当前元素相对于定位元素的水平偏移量
+            offsetTop  当前元素相对于定位元素的垂直偏移量 
+        scrollWidth
+        scrollHeight可以获取元素整个滚动区域的高度和宽度
+        scrollLeft
+        scrollTop 可以获取水平/垂直滚动条的距离
+        当满足 scrollWidth - scrollLeft == clientWidth  说明水平滚动条滚动到底
+        当满足 scrollHeight- scrollTop == clientHeight  说明垂直滚动条滚动到底
+    事件对象：
+        --当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数，
+            在事件对象中封装了当时事件的一切信息，比如，鼠标的坐标，键盘按键按下 鼠标滚轮滚动等
+        滚动条有onScroll事件
+        鼠标有onmousemove
+        解决事件兼容性：
+            a.onmouseove = function(event){
+                //在ie8及一下浏览器不会传递事件对象，而是将事件对象作为window对象的属性保存
+                event  =  event || window.event
+            }
+
+     -->
+</body>
+</html>

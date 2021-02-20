@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            /*
+                默认情况下径向渐变的形状根据元素的形状来计算
+                正方形----圆形
+                长方形----椭圆
+                    手动指定径向渐变的大小
+                    radial-gradient(100px,100px,red,yellow)
+                    repeating-radial-gradient(100px 100px,red ,yellow)
+                radial-gradient(circle,red ,yellow)    
+                circle 
+                ellipse
+            */
+            /* background-image: radial-gradient(red,yellow); */
+            background-image: radial-gradient(100px 100px at top center, red,yellow);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

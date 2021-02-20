@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 准备一个容器 -->
+    <div id="test">
+          
+    </div>
+    <!-- 引入react核心库 -->
+    <script type='text/javascript' src="../../JS/react.development.js"></script>
+    <!-- 用于指出react操作DOM -->
+    <script type="text/javascript" src="../../JS/react-dom.development.js"></script>
+    <!-- 用于将jsx转为js -->
+    <script type="text/javascript" src="../../JS/babel.min.js"></script>
+
+    <script type="text/babel">
+    //1.创建虚拟DOM
+    const VDOM = <h1>Hello React</h1> /*此处不用引号，因为不是字符串-----JSX写法*/
+    //2.渲染虚拟DOM到页面
+    ReactDOM.render(VDOM,document.getElementById('test'))
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="13-Iconfont/iconfont.css">
+    <style>
+        .outer{
+            width: 240px;
+            /*设置阴影效果*/
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+        }
+        .img-wrapper img{
+            width: 100%;
+            vertical-align: bottom;
+        }
+
+        .info{
+            padding: 0 18px;
+            color: #acaaaa;
+            font-size: 14px;
+        }
+
+        .info .title{
+            font-size: 18px;
+            color: #717171;
+            margin: 13px 0 15px 0;
+        }
+        .info .category i{
+            margin-right: 7px;
+            margin-left: 4px;
+        }
+        
+        .info .introduce{
+            line-height: 20px;
+            margin:18px 4px
+        }
+
+        .star-wrapper{
+            height: 46px;
+            border-top: 1px solid #e9e9e9;
+            line-height: 46px;
+        }
+        .star ,
+        .star li{
+            float: left;
+        }
+        .weibo {
+            float: right;
+            color: red;
+        }
+
+    </style>
+</head>
+    
+<body>
+    <!--
+        创建外层容器
+    -->
+    <div class="outer">
+        <!--
+            创建图片容器
+        -->
+        <div class="img-wrapper">
+            <img src="./17-背景图片/2.jpg" alt="">
+        </div>
+        <!--内容容器-->
+        <div class="info">
+            <h2 class="title">
+                动画电影 
+            </h2>
+            <h3 class="category">
+                <i class="iconfont iconrili "></i>
+                动画
+            </h3>
+            <p class="introduce">
+                这是一部迪士尼动画电影，非常非常的好看
+            </p>
+        </div>
+        <!--评分容器-->
+        <div class="star-wrapper">
+            <ul class="star">
+                <li class="iconfont iconbaoguo" ></li>
+                <li class="iconfont iconbaoguo" ></li>
+                <li class="iconfont iconbaoguo" ></li>
+                <li class="iconfont iconbaoguo" ></li>
+            </ul>
+            <span class="iconfont iconxiayige weibo" ></span>
+        </div>
+    </div>
+</body>
+</html>

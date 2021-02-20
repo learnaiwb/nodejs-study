@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //定义一个函数，为指定元素绑定响应函数
+        /*
+            参数：
+                obj:要绑定事件的对象
+                eventStr：事件的字符串
+                callback: 回调函数
+        */
+       function bind(obj,eventStr,callback){
+        //大部分浏览器兼容的方式
+        if(obj.addEventListener){
+            obj.addEventListener(eventStr,callback,false);
+        }else{
+        //ie8及以下
+            obj.attachEvent('on'+eventStr,function(){
+                callback.call(obj);
+            })
+        }
+            
+
+
+       }
+    </script>
+</head>
+<body>
+    <!-- 事件正常是不断上升冒泡的，可将事件的cancelBubble设置为true取消冒泡
+        event.target属性表明是哪个元素触发了事件，可以给父元素设置事件响应函数，通过该属性配合其他
+            相关属性进行逻辑判断，从而触发不同逻辑，旨在减少绑定函数
+        btn.onclick = function(){
+
+        }采用这种只能绑定一个函数
+        还可以采用 addEventListener()
+            -通过这个方法可以为元素绑定响应函数
+            -参数：
+                1，事件的字符串，不要on
+                2.  回调函数，当事件触发时该函数会被调用
+                3. 是否在捕获阶段触发事件，需要一个布尔值，一般都传false
+        但是addEventListener()对ie8不适用，可以使用attachEvent(对象，'on'+事件名称),但两者有所区别：
+            1.addEventListener 回调函数按书写顺序顺序执行，且函数中this对象，是绑定事件的对象
+            2.attachEvent()回调函数倒叙执行，且函数中this是window
+    -->
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            使用媒体查询：
+             语法:@media 查询规则{}
+                媒体类型：only仅为了支持旧的浏览器
+                    all 所有设备
+                    print 打印设备
+                    screen  带屏幕的设备 电脑手机
+                    speech 屏幕阅读器
+                可以多个一起写，都好分割：@media print,speech{}
+            媒体特性：
+                width:视口的宽度
+                height:视口的高度
+                min-width:视口大于该宽度生效
+                max-width:视口小于该宽度生效
+                @media (width:500px){
+                    body{
+                        background-color:red;
+                    }
+                }
+        */
+        /* @media only screen{
+            body{
+                background-color: #bfa;
+            }
+        } */
+        /* @media (max-width:500px) {
+            body{
+                background-color: red;
+            }
+        } */
+        @media only screen and (min-width:500px) and (max-width:700px) {
+            body{
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

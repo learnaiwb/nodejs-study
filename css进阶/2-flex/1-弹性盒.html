@@ -1,0 +1,97 @@
+flex:伸缩盒
+    设置：display:flex后的元素为弹性容器
+    flex-direction:指定容器中弹性元素的排列方式
+        可选值：
+        row:水平排列 自左向右
+        row-reverse:水平排列 自右向左
+        column:纵向排列 自上向下
+        column-reverse :纵向排列 自下向上
+    flex-wrap:设置弹性元素是否在弹性容器内走动换行
+        nowrap 默认值，元素不换行，超出父亲范围
+        wrap:沿着辅轴方向换行
+        wrap-reverse:沿着辅轴反向换行
+    flex-flow:wrap及direction的简写属性：flex-flow:row  wrap;
+    justify-content:
+        如何分配主轴上的空白空间
+        可选值：
+        flex-start:元素沿着主轴排列，空白在末尾
+        flex-end:空白在主轴前面，元素仍沿着主轴排列
+        center:元素居中排列，两侧空白均分
+        space-around:空白分布在元素两端
+        space-between:空白均匀分布到元素间，两头无空白
+        space-evenly:空白分布到元素单侧
+    align-item:
+        元素在辅轴上如何对齐：
+        比如:宽度方向摆不下所有元素，元素换行后排列,而元素未指定对固定高度
+        stretch:默认值 将同一主轴上的元素长度设置为相同的值
+        flex-start:元素不会拉伸，沿着辅轴起边对齐
+        flex-end:沿着辅轴终边对齐
+        center:居中对齐
+        baseline:基线对齐
+    align-content:辅轴空间的分布，可选值见justify-content
+内部弹性元素设置：    
+    flex-grow：指定弹性元素的伸展系数，默认0
+        -当父元素有多余空间时，子元素如何伸展
+        -父元素的剩余空间，按照比列进行分配
+    flex-shrink:指定弹性元素的收缩系数
+        当父元素的空间不足以容纳所有子元素时，对子元素进行收缩
+    align-self:用来覆盖当前弹性元素上align-item
+    flex-basis 指定的是元素在主轴上的基础长度
+        如果主轴是横向的，则该值指定的是元素的宽度  此时width设置的被覆盖
+        如果主轴是纵向的，则该值指定的是元素的高度  此时height设置的被覆盖
+        默认值为auto，即以元素自身的width height
+    flex是grow shrink basis的组合：
+        -可选值：               grow  shrink   basis
+            initial========flex: 0    1       auto
+            auto   ========flex: 1    1       auto
+            none   ========flex: 0    0       auto
+    order:调整元素的排列顺序 order:1  order:2 order:3   1会排在前面
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 400px;
+            height: 600px;
+            background-color: blanchedalmond;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            /* align-content:center; */
+        }
+        .box2{
+            width: 150px;
+            /* height: 200px; */
+            background-color: red;
+        }
+        .box3{
+            width: 150px;
+            height: 350px;
+            background-color: green;
+        }
+        .box4{
+            width: 150px;
+            height: 300px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">1</div>
+        <div class="box3">
+            <div>11</div>
+            <div>111</div>
+        </div>
+        <div class="box4">
+            <div>2</div>
+            <div>32</div>
+            <div>333</div>
+        </div>
+    </div>
+</body>
+</html>

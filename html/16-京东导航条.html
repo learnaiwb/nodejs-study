@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="./reset.css">
+    <!--引用图标字体-->
+    <link rel="stylesheet" href="./13-Iconfont/iconfont.css">
+
+    <style>
+
+        .clear-fix::before,
+        .clear-fix::after{
+            content:"";
+            display: table;
+            clear:both
+        }
+
+        body{
+            font:12px/1.5 Microsoft YaHei;
+            color:#ddd
+        }
+
+        .top-bar-wrapper{
+            width: 100%;
+            background-color: #e3e4e5;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px red #ddd;
+        }
+
+
+        .top-bar{
+            width: 1190px;
+            margin: 0 auto;
+        }
+
+
+        .location{
+            float:left;
+            position: relative;
+        }
+        .location:hover{
+            background-color: #fff;
+        }
+        .location:hover .city-list{
+            display: block;
+        }
+        .location:hover .current-city{
+            padding-bottom: 1px;
+            border: 1px solid rgb(204, 204, 204);
+            border-bottom: none;
+            background-color: #fff;
+        }
+
+        .location .city-list{
+            width:320px;
+            height: 436px;
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+            position: absolute;
+            display: none;
+            top:31px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+            z-index: 999;
+        }
+
+        .current-city{
+            padding: 0 10px;
+            border: 1px solid transparent;
+            position: relative;
+            z-index:9999;
+            padding-bottom: 1px;
+            border-bottom: none;
+        }
+
+        .shortcut{
+            float:right;
+            text-align: center;
+        }
+        ul li{
+            float: left;
+        }
+        
+        .top-bar a,
+        .top-bar span,
+        .top-bar i{
+            color:#999;
+            text-decoration: none;
+        }
+
+        .top-bar a:hover,
+        .top-bar a.highlight{
+            color: #f10215;
+        }
+        /*设置分割线*/
+        .shortcut .line{
+            width: 1px;
+            height: 10px;
+            background-color: #999;
+            margin:10px 12px 0px;
+        }
+
+    </style>
+
+
+
+</head>
+
+<body>
+    <!--创建外围容器-->
+    <div class="top-bar-wrapper">
+        <div class="top-bar clear-fix">
+            <!--左侧-->
+            <div class="location">
+                <div class="current-city">
+                    <i class="iconfont iconrili" style="color:red"></i>
+                    <a href="javascript:;">北京</a>
+                </div>
+                <!--设置城市列表-->
+                <div class="city-list"></div>
+            </div>
+            <!--右侧-->
+            <ul class="shortcut">
+                <li>
+                    <a href="javascript:;">您好，请登录</a>
+                    <a href="javascript:;" class="highlight">免费注册</a>
+                </li>
+                <li class="line"></li>
+                <li><a href="javascript:;">我的订单</a></li>
+                <li class="line"></li>
+                <li>
+                    <span href="javascript:;">我的京东</span></li>
+                <li class="line"></li>
+                <li><a href="javascript:;">京东会员</a></li>
+                <li class="line"></li>
+                <li>
+                    <span href="javascript:;" class="highlight">企业采购</span></li>
+                <li class="line"></li>
+                <li>
+                    <span href="javascript:;">客户服务</span>
+                    <i class="iconfont iconbaoguo" style="vertical-align:middle;" > </i>
+                </li>
+                <li class="line"></li>
+                <li><span href="javascript:;">网站导航</span></li>
+                <li class="line"></li>
+                <li><a href="javascript:;">手机京东</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

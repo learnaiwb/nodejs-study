@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            1.解析器在调用函数时会向函数内部传递一个隐藏的参数，这个隐藏的参数就是this
+            2.构造函数的执行流程：
+                1.立刻创建一个新的对象
+                2.将新建的对象设置为函数中的this
+                3.逐行执行函数中的代码
+                4.将新建的对象作为返回值返回
+                使用instanceof可以检查一个对象是否是一个类的实例 a instanceof b如果是返回true，否则false
+            3.this
+                当以函数的形式调用时，this就是window
+                当以方法的形式调用时，谁调用方法this就是谁
+                当以构造函数的形式调用时，this就是新创建的对象
+            4.原型对象prototype
+                我们所创建的每一个函数，解析器都会向函数中添加一个属性prototype
+                这个属性对应着一个对象，这个对象就是我们所谓的原型对象
+                如果函数作为普通函数调用，prototype没有任何作用
+                当以构造函数的形式调用时，它所创建的对象中都会有一个隐含的属性，指向该构造函数的原型对象，
+                可以通过__proto__来访问该属性。 
+                当我们访问对象的一个属性或方法时，他会现在对象中寻找，如果有则直接使用，如果没有则会去原型
+                对象中寻找，如果找到则直接使用；如果没有则去原型中的原型中寻找，直到找到Object对象的原型，Object对象的原型
+                没有原型，如果在Object中依然没有找到，则返回undefined
+            5.使用in检查是否含有某个属性时，如果对象中没有但原型有，会返回true;可以使用hasOwnProperty()来
+                检查对象自身中是否含有该属性。
+        */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

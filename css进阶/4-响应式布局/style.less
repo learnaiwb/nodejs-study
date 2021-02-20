@@ -1,0 +1,133 @@
+a{
+    text-decoration: none;
+    color: #fff;
+    &:hover{
+        color: rgb(197,196,196);
+    }
+}
+.top-bar-wrapper{
+    background-color: #000;
+}
+.top-bar{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 48px;
+    background-color: black;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+// 设置左侧导航图标
+.left-menu{
+    &:active{
+        .nav{
+            display: block;
+        }
+    }
+    //设置菜单 相对于html进行定位
+    .nav{
+        display: none;
+        position:absolute;
+        top:48px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000;
+        padding-top: 60px;
+        li{
+            width:80%;
+            margin: 0 auto;
+            border-bottom: 1px solid #757474;
+
+            a{
+                display: block;
+                line-height: 44px;
+                font-size: 14px;
+                margin-right: 6px;
+            }
+            span{
+                color:#fff;
+                font-size:14px;
+            }
+            &:last-child a{
+                display: inline-block;
+
+            }
+        }
+    }
+
+    .menu-icon{
+        width:18px;
+        height: 48px;
+        // background-color: #bfa;
+        position: relative;
+        
+        li{
+            width: 18px;
+            height: 1px;
+            background-color: #fff;
+            position: absolute;
+            transform-origin: left;
+            transition: .4s;
+        }
+        li:nth-child(1){
+            top: 18px;
+        }
+        li:nth-child(2){
+            top: 23px;
+        }
+        li:nth-child(3){
+            bottom: 18px;
+        }
+        &:hover{
+            li:nth-child(1){
+                //向下旋转
+                transform: rotateZ(36deg );
+
+            }
+            li:nth-child(2){
+                opacity: 0;
+            }
+            li:nth-child(3){
+                transform: rotateZ(-40deg);
+            }
+        }
+    }
+}
+
+@media only screen{
+    //断点 768px
+    @media (min-width:768px){
+        .left-menu{
+            order: 2;
+            flex: auto;
+            .menu-icon{
+                display: none;
+            }
+            .nav{
+                display: flex;
+                position: static;
+                padding-top: 0;
+                justify-content: space-around;
+                li{
+                    width: auto;
+                    border-bottom: none;
+                    margin: 0;
+                    a{
+                        line-height: 48px;
+                    }
+                    span{
+                        display: none;
+                    }
+                }
+            }
+        }
+        .logo{
+            order: 1;
+        }
+        .user-info{
+            order:3
+        }
+    }
+}

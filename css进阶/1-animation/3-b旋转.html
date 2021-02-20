@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* z轴平移，调整元素在z轴的位置 正常情况下是调整元素和人眼之前的距离
+            距离越大，元素离人越近
+            z轴平移属于立体效果即近小远大，默认情况下网页不支持透视，如果需要效果必须设置视距perspective
+        */
+        html{
+            perspective: 800px;
+            border: 10px solid silver;
+        }
+        body{
+            border: 1px solid red;
+            background-color: rgb(241, 241, 241);
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            margin: 200px auto;
+            transition: all 2s;
+        }
+        body:hover .box{
+            transform: translateZ(800px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

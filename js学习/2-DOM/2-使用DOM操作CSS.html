@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box1 = document.getElementById('box1');
+            var btn1 = document.getElementById('btn01');
+            btn1.onclick=function(){
+            //修改box1高度
+            //    通过Js修改元素样式
+            //    语法： 元素.style.样式名 = 样式值   这种方式修改的是内联样式，优先级高
+            // 如果css样式名中含有-，这种名称在JS中不合法，需要修改为驼峰命名background-color
+            box1.style.backgroundColor = 'red';
+            }
+            var btn2 = document.getElementById('btn02');
+            btn2.onclick=function(){
+            //读取box1的样式
+            //语法1：元素.style.样式名     无法读取样式表中的样式
+            //语法2：元素.currentStyle.样式名  读取当前正在显示的样式 只有ie支持 
+            //语法3：在其他浏览器中使用getComputedStyle(参数1，参数2) 返回值.属性名 ie9及其他浏览器
+            //       参数1：要获取样式的元素 
+            //       参数2：可以传递一个伪元素 一般为null
+            //通过currentStyle和getComputedStyle()读取的样式都是只读的,无法修改，如果要修改必须通过style属性
+                console.log(box1.style)
+                console.log(getComputedStyle(box1,null).width)
+            }
+        }
+        /*
+            定义一个函数，用来获取指定元素的样式
+        */
+       function getStyle(obj,name){
+           //这里必须用window，因为属性没有会报undefined而变量没有则会报异常，不在执行
+            return window.getComputedStyle?getComputedStyle(obj,null)[name]:obj.currentStyle[name];
+       }
+    </script>
+</head>
+<body>
+    <button id='btn01'>点击</button>
+    <button id='btn02'>读取</button>
+    <div id="box1"></div>
+</body>
+</html>

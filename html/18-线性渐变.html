@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            /* background-image: linear-gradient(red 50px,yellow 100px,green 120px,orange 200px); */
+            background-image: repeating-linear-gradient(to right,red ,yellow 50px);
+    </style>
+</head>
+<body>
+    /*
+        通过渐变设hi一些复杂的颜色，实现一个颜色向其他颜色的过度效果
+        ！！渐变是图片，需要通过background-image设置
+        线性渐变，颜色沿着一条直线发生变化，开头可以指定一个渐变的方向
+            to left 
+            to right
+            to bottom默认
+            to top
+            xxxdeg deg为度数
+        background-image:linear-gradient(to right,red,yellow)
+        -渐变可以同时指定多个颜色，默认情况下平均分布
+        background-image:linear-gradient(red,yellow,blue)
+    */
+    <div class="box1"></div>
+</body>
+</html>

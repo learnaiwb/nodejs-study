@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 50%;
+            border: 1px solid blueviolet;
+            /* 指定边框直接的距离 */
+            /* border-spacing: 0px; */
+            /* 设定多重边框合并为一个 */
+            border-collapse: collapse;
+            margin:0 auto
+        }
+        td{
+            border: 1px solid red;
+            /* 默认情况下元素在td中是垂直居中 */
+            vertical-align: bottom;
+            text-align: center;
+        }
+    /* 如果表格没有使用tbody而是直接使用tr，那么浏览器会自动创建一个tbody，并且将tr放到tbody内，tr不是table直接子元素 */
+       tbody > tr:nth-child(2n){
+            background-color: #bfa;
+        }
+
+
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>手机号</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>wb</td>
+            <td>23/td>
+            <td>15092111096</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>wb</td>
+            <td>23/td>
+            <td>15092111096</td>
+        </tr>
+    </table>
+
+    <table>
+        <!-- thead tbody tfoot -->
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>收入</th>
+                <th>支出</th>
+                <th>合计</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2000</td>
+                <td>250</td>
+                <td>100</td>
+                <td>150</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

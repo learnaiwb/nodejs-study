@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        定位position:
+            static默认值
+            releative相对定位
+                特点：
+                1.开启相对定位后，如果不设置偏移元素不会发生任何变化
+                2.相对定位是参照于元素在文档流中的位置进行定位的
+                3.相对定位会提升元素层级
+                4.相对定位不会使元素脱离文档流
+                5.相对定位不会改变元素的性值，即块还是块元素，行内还是行内元素
+            absolute
+            水平布局等式：
+                特点：
+                1.如果不设置偏移量，元素位置不会发生变化,但会浮起来，后面的元素会上来
+                2.开启绝对定位后，元素会从文档流脱离
+                3.绝对定位会改变元素的性质，块变成行内，宽高被内容撑开**
+                4.绝对定位会使元素提升一个层级
+                5.绝对定位元素相对于其包含块进行定位
+                    包含块（containning block）
+                    ---正常情况下：
+                            包含快就是离当前元素最近的祖先块元素，注意是块，行内不算的
+                    ---绝对定位的包含块：
+                        离它最近的开启了定位的祖先元素，主要不是static的position定位
+               left + margin-left + border-left + padding-left + width + paddign-right + \
+            +border-right + margin-right + right = 父元素内容宽度
+                    当我们开启了绝对定位后：
+                        水平方向的布局等式就需要添加left right两个值，此时规则和之前一样只是多了两个值：
+                            当发生过渡约束：
+                                如果9个值中没有auto，则自动调整right值以使等式满足，如果由auto，则自动调整auto以使等式满足
+                            可设置auto的值：
+                                margin width left right
+                            因为left和right的值默认是auto,所以如果不知道left和right则等式不满足会自动调整这两个值
+                            left:0; right:0; margin:auto; margin:auto;width:100px;height:100px;则调整margin元素水平居中
+                        垂直方向布局的等式也要满足：
+                                top + margin-top/bottom + padding-top/bottom + border-top/bottom  + height =父元素的height
+                        fixed:
+                固定定位：
+                    -也是一种绝对定位，所以大部分特点都和绝对定位一样，唯一不同的是
+                        固定定位永远相对于浏览器的视口进行定位。
+            sticky
+                粘滞定位----新推出的，支持度一般
+                positon:sticky
+                top:100px，相对于包含块100px时，不在移动，pc端一般不用，兼容性差
+        偏移量top left bottom right
+        */
+   
+        .box1{
+            width: 500px;
+            height:500px;
+            position: relative;
+            background-color: red;
+        }
+        .box2{
+            /*
+            个人理解auto是有优先级的：如下面的示例，是水平即垂直居中的，如果将width改为auto,
+            则水平会铺满父元素；如果将right改为auto，则元素位于中心偏左，相当于给right补充了剩下的元素
+            */
+            position: absolute;
+            width:100px;
+            height: 100px;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            margin: auto;
+            background-color: yellow;
+        }
+   
+   </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            字体相关的样式：
+                color 颜色 
+                font-size 大小
+                    em相当于当前元素的一个font-size
+                    rem相当于根元素的一个font-size
+                font-family 字体族 （字体的格式）
+                    可选值：字体的分类 不是以具体字体格式
+                    serif  衬线字体   
+                    sans-serif 非衬线字体
+                     monospace 等宽字体，让每一个字母宽度一样，我们编写的程序一般都是等宽字体，对齐好看
+                    可以同时指定多个，逗号隔开，字体生效时优先使用第一个
+                    font-family: 'Courier New',Courier,monospace
+            将服务器中的字体直接提供给客户使用，在style中使用，正文里font-family:mycount
+            @font-face{
+                font-family:'mycount' ;指定字体名字，随便起个名字,正文里用
+                src : url();服务器中字体的路径
+            }
+        */
+        p{
+            font-family: "华文彩云";
+            color: red;
+            font-size: 1rem;
+        }
+
+    </style>
+
+</head>
+<body>
+    <p>哈哈哈哈</p>
+</body>
+</html>

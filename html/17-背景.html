@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* background-color
+        background-image
+        background-position
+        background-size
+        background-orgin
+        background-clip
+        background-attachment 
+        
+        background 背景相关的简写属性，所有背景相关的样式都可以通过该样式设置，并且有顺序要求，也没有哪个属性是必须写的
+
+        注意：
+        background-size必须在background-position的后面，并且用/隔开  background-position/background-size
+        background-origin必须在background-clip前面
+        
+        */
+        *{
+            padding:0;
+            margin: 0;
+        }
+        .box1{
+            width: 500px;
+            height: 500px;
+            border: 10px double black;
+            padding: 10px;
+            /*
+                background-color 设置背景颜色
+            */
+
+            background-color: red;
+            /*
+                background-image 设置背景图片
+                可以同时设置背景图片和背景颜色
+                如果背景的图片小于元素，则背景图片会自动在元素中平铺
+                如果背景图片大于元素，将会一个部分背景无法完全显示
+            */
+
+            background-image: url(./17-背景图片/2.jpg);
+
+            /*
+                background-repeat 设置背景重复方式
+                可选值：
+                repeat 默认值 ，背景沿着x轴即y轴双方向重复
+                repeat-x 沿着x轴
+                repeat-y 沿着Y轴
+                no-repeat 背景图片不重复
+
+            */
+            background-repeat: no-repeat;
+            /*
+                background-position 设置图片位置
+                设置方式1：
+                通过top left right bottom center 使用方位词时，同时指定两个，如果指定一个，则第二个默认为center
+                设置方式2:
+                通过偏移量设置 水平便宜 垂直偏移
+
+            */
+            /* background-position: center bottom; */
+            background-position: 0 0;
+            /*
+                background-clip 设置背景范围
+                可选值：
+                border-box 默认值，背景会出现在边框下边
+                padding-box 背景不会出现在边框，只出现在内容区和内边距
+                content-box 背景只出现在内容区
+            */
+            background-clip: border-box;
+            /*
+            background-orgin计算背景图片计算偏移位置的原点
+            可选值：
+            padding-box 默认值 从内边距开始计算
+            content-box 背景图片从内容去开始计算
+            border-box  从边框顶点开始计算
+            */
+            background-origin: padding-box;
+
+            /*
+            background-size 设置图片大小
+                1.第一个值表示宽度
+                第二个值表示高度
+                如果只写一个，则第二个默认为auto
+                2.cover 图片比例不变，将元素铺满
+                3.contain 图片比例不变，将图片在元素中完整显示
+            */
+            background-size:cover;
+            overflow: auto;
+        }
+        .box2{
+            width: 200px;
+            height: 2000px;
+            background-image: url(./17-背景图片/1.jpg);
+            /*
+                background-attachment
+                -背景图片是否跟随元素移动
+                可选值：
+                默认值 scroll 背景图片跟随元素移动
+                fixed 背景会固定在页面中，不会随元素移动
+            */
+            background-attachment: fixed;
+
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum incidunt corrupti officiis deserunt a at id, obcaecati, alias, consectetur nisi nihil natus unde beatae qui velit accusamus illo necessitatibus maxime.
+            Similique magni debitis perferendis nesciunt nobis reiciendis aperiam sunt corporis tenetur inventore repellat eligendi ullam repudiandae labore cum sapiente voluptate, fugiat accusantium fuga maiores. Ipsa neque eius dignissimos reiciendis deserunt.
+            Explicabo doloremque autem, aut eligendi debitis magnam voluptas, hic nemo, veniam delectus iusto corrupti. Quos molestiae ipsa sed. Mollitia minus expedita, porro similique aperiam architecto unde a reprehenderit repellendus eum?
+            Deserunt voluptas tempora tenetur sed consequatur, enim exercitationem sit temporibus eius at vel eaque fugiat architecto atque inventore deleniti odit neque porro similique est reprehenderit repellendus pariatur. Vero, quibusdam beatae.
+            Quos sit recusandae, expedita nisi totam quidem quam ipsa sunt, dolores unde rem ut? Perferendis eaque fugiat cupiditate esse alias libero eius accusantium, maiores, quaerat, porro sequi reiciendis aliquid aspernatur.
+            Quam nemo perferendis illo quae adipisci sit atque nostrum deserunt in officia, minima velit iste dolores suscipit provident eligendi dolore illum. Officiis a iusto, magnam deserunt ullam enim! Corporis, natus?
+            Eius, deserunt ad aspernatur dignissimos dicta earum mollitia veritatis nostrum. Non reprehenderit quam minima voluptatem rem reiciendis delectus iste similique suscipit, eum, fugiat corporis eaque nobis harum ullam, itaque incidunt.
+            Quo cupiditate hic porro non explicabo iste excepturi? Iure enim repellat magnam dignissimos, deserunt voluptate illum commodi nisi laborum? Eos ipsum earum autem reiciendis nesciunt fugit provident nam saepe accusamus?
+            Ea ex eveniet laudantium delectus placeat fugit totam mollitia laboriosam deserunt dolore voluptate iure fuga sint porro ratione animi corrupti atque commodi, debitis perferendis fugiat ipsum eum eligendi. Magnam, eveniet.
+            Ipsam, quae delectus. Nemo illo consequatur qui eaque inventore veniam in molestiae harum dolor similique magni, atque voluptatem commodi labore est vitae cupiditate exercitationem accusamus? Quasi dolores aliquam amet? Dolores.
+            Odit et iure inventore nam. Nemo eius voluptatibus voluptatum incidunt odit. Quibusdam deleniti sit molestias reprehenderit excepturi qui in possimus laudantium modi fugit vel quod odio dolore, quaerat quam quidem!
+            Autem vero alias voluptatem blanditiis expedita corrupti vel dolorum et vitae eum, a consequuntur provident, magnam, esse illo! Voluptatibus voluptatum, perferendis magni aliquid quo quam in vel molestias recusandae totam!
+            Corrupti consequatur vero velit necessitatibus delectus similique sed unde, officia dicta nemo, quasi, quisquam debitis esse? Praesentium distinctio dicta fugiat doloremque quidem cumque aut ut maiores. Ab perferendis voluptas dignissimos.
+            Accusantium repudiandae aliquam quas molestias molestiae, ipsum nemo doloremque perspiciatis quam praesentium blanditiis, recusandae libero exercitationem modi qui distinctio iure commodi alias autem accusamus! Commodi provident qui hic magni beatae?
+            Eligendi ratione ex laudantium, hic a nihil quasi. Eaque nostrum in sequi vel? Aperiam animi et veritatis voluptatibus, recusandae exercitationem eveniet sint in magni soluta non placeat nihil esse nulla!
+        </div>
+    </div>
+</body>
+</html>

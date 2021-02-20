@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes ball{
+            from{
+                margin-top: 10px;
+            }
+            10%,30%,60%,to{
+                margin-top: 400px;
+                animation-timing-function: ease-in;
+            }
+            20%{
+                margin-top: 30px;
+                animation-timing-function: ease-out;
+            }
+            40%{
+                margin-top: 150px;
+            }
+            80%{
+                margin-top: 300px;
+            }
+        }
+        .outer{
+            width: 800px;
+            height: 500px;
+            background-color: bisque;
+            overflow: hidden;
+        }
+        .outer div{
+            width: 100px;
+            height: 100px;
+            animation: ball alternate 1s infinite ;
+            border-radius: 50%;
+            float: left;
+        }
+        .outer .box1{
+            background-color: red;
+            
+        }
+        .outer .box2{
+            background-color: yellow;
+            animation-delay: 0.2s;  
+        }
+        .outer .box3{
+            background-color: blue;
+            animation-delay: 0.4s;
+        }
+        .outer .box4{
+            background-color: pink;
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </div>
+</body>
+</html>

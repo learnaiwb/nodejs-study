@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box1{
+        width: 1800px;
+        height: 800px;
+        background-color: antiquewhite;
+        overflow: hidden;
+    }
+    .box2{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+
+        /* 设置box2动画 */
+        /*  animation-name要对当前元素生效的关键帧的名字 */
+        animation-name: test;
+        /* animation-duration 动画执行时间 */
+        animation-duration: 2s;
+        /* 延时时间 */
+        animation-delay: 2s;
+        animation-timing-function: ease-in-out;
+        /* 动画执行次数 infinite无限执行*/
+        animation-iteration-count: infinite;
+        /* 动画运行方向 animation-direction
+            默认值normal 从from向to执行
+            reverse从to向from执行
+            alternate 重复执行时，反向执行，即折返跑 from--to--from，只有第一次delay有效果
+            alternate-reverse 即 to----from----to
+        */
+        animation-direction: alternate;
+
+        /* animation-play-state设置动画执行的状态 
+            默认值running
+            paused动画暂停
+        */
+
+        /* animation-fill-mode动画的填充模式
+            默认值：none 动画执行完毕，元素回到原来位置，注意不是from的位置！！
+            forwards 动画执行完毕会停在动画结束的位置即to的位置
+            backwards 配合上面的delay延迟使用，延迟等待时，元素就会处于开始位置，但是会回到起始位置
+            both：集合了forwards和backwards
+
+        */
+        animation-fill-mode:both ;
+    }
+    .box1:hover div{
+        animation-play-state: paused;
+    }
+    /* 动画和过渡类似，实现一些动态效果，不过过渡需要某个属性发生变化后才会触发
+        设置动画效果必须先要设置一个关键帧，
+    */
+    @keyframes test{
+        /* from表示动画开始，可以用0%替代
+            to表示结束，可以用100%表示 */
+        from{
+            margin-left: 0;
+        }
+        to{
+            margin-left: 700px;
+        }
+    }
+
+
+
+
+</style>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
