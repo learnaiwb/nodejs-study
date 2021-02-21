@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //捕获浏览器
+        var  ua = navigator.userAgent;
+        if(/firefox/i.test(ua)){
+            alert('火狐');
+        }else if(/chrome/i.test(ua)){
+            alert('谷歌');
+        }else if(/msie/i.test(ua)){
+            alert('ie');
+        }else if('ActiveXObject' in Window){
+            alert('ie11')
+        }
+        var num =0;
+        var n;
+        n=setInterval(function(){
+            console.log(num++);
+            if(num ==11){
+                clearInterval(n);
+                console.log("jiehsu")
+            }
+        },1000)
+    </script>
+</head>
+<body>
+    <!-- 
+        BOM
+         -浏览器对象模型
+         -BOM可以是让我们通过js操作浏览器
+         -在BOM中为我们提供了一组对象，用来完成对浏览器的操作
+         Window 
+                -代表整个浏览器窗口，同时window也是网页中的全局对象
+         -BOM对象：
+            Navigator
+                -代表浏览器的信息,通过该对象识别不同浏览器
+                -由于历史原因，该对象中大部分属性不能帮助我们识别浏览器了
+            Location
+                -浏览器上的地址栏，可以获得地址信息或进行页面跳转
+                console.log(location) 打印当前网址
+                location = 'http://www.baidu.com' 自动跳转到该路径并生成历史记录
+                location.assign('http://www.baidu.com')等同于上一行直接赋值
+                location.reload() 重新加载当前页面;如果传入true作为参数则强制清空缓存刷新
+                location.replace('http://www.baidu.com')不会生成历史记录，不能使用回退 
+            History
+                -代表浏览器“历史记录”，由于隐私原因，不可以获得具体的历史记录，只能操作浏览器向前向后
+                history.length 属性 历史记录长度
+                history.back() 回退到上一个页面
+                history.forward() 跳转到下一个页面
+                history.go() 它需要一个整数作为参数 例2表示向前跳转2个页面
+                Screen
+                -代表用户屏幕信息，通过该对象获取用户的显示器相关的信息
+
+
+     -->
+</body>
+</html>
