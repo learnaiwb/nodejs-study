@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 200px;
+            background-color: red;
+        }
+
+    </style>
+    <script>
+        function bind(obj,eventStr,callback){
+            if(obj.addEventListener){
+                obj.addEventListener(eventStr,callback,false)
+            }else{
+                //IE8及一下
+                obj.attachEvent('on'+eventStr,function(){
+                    callback.call(obj);
+                })
+            }
+        }
+
+        window.onload = function(){
+            var box1 = document.getElementById('box1');
+            //为box1绑定一个鼠标滚动的事件
+            /*
+                onmousewheel鼠标滚轮滚动事件，会在滚轮滚动时触发，但是火狐不支持该属性，
+                在火狐中使用DOMMouseScroll来绑定滚动事件，且该事件需要通过addEventListener()函数绑定
+            
+            */
+           box1.onmousewheel = scale_y;
+           bind(box1,'DOMMouseScroll',box1.onmousewheel);
+
+
+
+           function scale_y(event){
+               event = event || window.event;
+               //event.wheelDelta 可以获取鼠标滚轮滚动的方向 
+               //向上滚为正，向下为负值
+               //而在火狐中不支持，使用event.detail来获取，向上为负值，向下为正值
+
+               console.log(event.wheelDelta )
+               if(event.wheelDelta >0 || event.detail < 0){
+                   //向上滚动，这里得用clientHeight 
+                    box1.style.height =box1.clientHeight+ 20 +'px';
+               }else{
+                    box1.style.height =box1.clientHeight- 20 +'px';
+               }
+
+               /*
+                使用addEventListener()方法绑定响应函数，取消默认行为时不能使用return false
+                需要使用event来取消
+               */
+               event.preventDefault && event.preventDefault();
+
+
+               /*
+                当滚轮滚动时，如果浏览器有滚动条，滚动条会随之滚动这是浏览器默认行为，
+                如果不希望发生，则可以取消默认行为
+               */
+                return false;
+           }
+        }
+    </script>
+</head>
+<body>
+    <div id ='box1'></div>
+</body>
+</html>

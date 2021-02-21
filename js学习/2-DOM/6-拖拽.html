@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+       
+        function drag(obj){
+            obj.onmousedown = function(event){
+
+            //设置obj捕获所有鼠标按下的事件
+            /*
+                setCapture() releaseCapture()只有ie支持，
+                但是在火狐中调用不会报错而使用chrome调用会报错
+            */
+             //这行代码只要是为了兼容Ie8，其他的通过下面的return false就可以解决
+                obj.setCapture && obj.setCapture();
+
+                event = event || window.event;
+                var  ol = event.clientX - obj.offsetLeft;
+                var ot = event.clientY - obj.offsetTop;
+                
+                document.onmousemove = function(event){
+                        event = event || window.event;
+                        var left = event.clientX -ol;
+                        var top = event.clientY - ot;
+                        //修改box1位置
+                        obj.style.left = left + document.documentElement.scrollLeft + 'px';
+                        obj.style.top = top + document.documentElement.scrollTop+ 'px';
+                        
+                }
+                    //这里不能用box1触发事件，因为会存在该元素被其他元素遮盖情况，这样触发事件对象就不是box1了
+                document.onmouseup =function(event){
+                        document.onmousemove = null;
+                        //防止多次执行
+                        document.onmouseup = null;
+
+                        obj.releaseCapture && obj.releaseCapture();
+                    };
+                /*
+                    当我们拖拽一个网页中的内容时，浏览器会默认去搜索引擎搜索内容。
+                    此时会导致拖拽功能异常，这是浏览器默认行为。
+                    如果不希望这个行为的发生，可以通过return false来取消行为
+                    但是对ie8不起作用。
+                */
+                return false;
+            };  
+            }
+        window.onload = function(){
+            /*
+                拖拽box1元素
+                -流程：
+                    1.鼠标按下开始拖拽
+                    2.跟随鼠标移动
+                    3.鼠标松开固定在当时位置
+            */
+           var box1 = document.getElementById('box1');
+           drag(box1);
+        //    //box1绑定鼠标按下事件
+        //    box1.onmousedown = function(event){
+
+        //     //设置box1捕获所有鼠标按下的事件
+        //     /*
+        //         setCapture() releaseCapture()只有ie支持，
+        //         但是在火狐中调用不会报错而使用chrome调用会报错
+        //     */
+        //         //这行代码只要是为了兼容Ie8，其他的通过下面的return false就可以解决
+        //         box1.setCapture && box1.setCapture();
+
+        //        event = event || window.event;
+        //        var  ol = event.clientX - box1.offsetLeft;
+        //        var ot = event.clientY - box1.offsetTop;
+        //        console.log('ol = '+ol);
+        //        console.log('ot = '+ ot )
+               
+        //        document.onmousemove = function(event){
+        //             event = event || window.event;
+        //             var left = event.clientX -ol;
+        //             var top = event.clientY - ot;
+        //             //修改box1位置
+        //             box1.style.left = left + document.documentElement.scrollLeft + 'px';
+        //             box1.style.top = top + document.documentElement.scrollTop+ 'px';
+                    
+        //        }
+        //         //这里不能用box1触发事件，因为会存在该元素被其他元素遮盖情况，这样触发事件对象就不是box1了
+        //        document.onmouseup =function(event){
+        //             document.onmousemove = null;
+        //             //防止多次执行
+        //             document.onmouseup = null;
+
+        //             box1.releaseCapture && box1.releaseCapture();
+        //         };
+        //         /*
+        //             当我们拖拽一个网页中的内容时，浏览器会默认去搜索引擎搜索内容。
+        //             此时会导致拖拽功能异常，这是浏览器默认行为。
+        //             如果不希望这个行为的发生，可以通过return false来取消行为
+        //             但是对ie8不起作用。
+        //         */
+        //         return false;
+        //    };
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>

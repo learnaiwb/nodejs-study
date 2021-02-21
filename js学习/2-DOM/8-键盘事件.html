@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            /*
+                键盘事件：一般绑定给可以获取焦点的对象或者document
+                onkeydown 按键按下
+                    当onkeydown连续触发，为防止误触发，第一次与第二次间隔会久点，后面就快了
+                onkeyup   按键抬起
+            */
+           document.onkeydown = function(event){
+               event = event || window.event;
+               /*
+               可以通过keycode判断哪个按键被按下，此外事件对象还提供了几个属性：
+                altkey
+                ctrlkey
+                shiftkey这三个属性来判断alt ctrl shift是否被按下，按下返回true，否则为false
+
+               */
+              //判断y是否按下
+              if(event.keyCode === 89){
+
+              }
+              //判断ctrl+y同时按下
+              if(event.ctrlKey && event.keyCode ===89){
+
+              }
+              //获取input
+              var input = document.getElementsByTagName('input')[0];
+              input.onkeydown = function(event){
+                  event = event || window.event;
+                  console.log('按键被按下了');
+                  //input框里不会有东西
+                //   return false;
+                //只允许输入数字
+                return event.keyCode>=48 && event.keyCode<=57;
+              }
+           }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="">
+</body>
+</html>
