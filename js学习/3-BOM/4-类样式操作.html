@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .b{
+            width: 100px;
+            height: 200px;
+            background-color: red;
+        }
+        .a{
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        function addClass(obj,cls){
+            var reg = new RegExp('\\b'+ cls + '\\b');
+    
+    !reg.test(obj.className) && (obj.className += ` ${cls}`);
+}
+        window.onload = function(){
+            let box = document.getElementById('box1');
+            let btn = document.getElementById('btn1');
+            let h = document.getElementById('h1');
+            btn.onclick = function(){
+                /*
+                    js与css分离，进行修改样式，通过style属性修改，没修改一次，浏览器就
+                    要重新渲染一次页面，这样执行性能较差，且不方便，建议直接修改元素的class属性
+                */
+               addClass(box,'a');
+                // box.className += 'a';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="b" id="box1"></div>
+    <button id="btn1">按钮</button>
+    <h1 id='h1'>a</h1>
+</body>
+</html>

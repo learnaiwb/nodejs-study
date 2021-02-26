@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            /* ie不设置为auto */
+            left:0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: wheat;
+            position: absolute;
+            top:200px;
+            /* ie不设置为auto */
+            left:0;
+        }
+        
+    </style>
+    <script src="./tools.js"></script>
+    <script>
+        //obj 要获取样式的元素
+        //name 要获取的样式名
+        function getStyle(obj,name){
+            if(window.getComputedStyle){
+                //正常浏览器的方式，具有该方法
+                return getComputedStyle(obj,null)[name];
+            }else{
+                //ie8方式
+                return obj.currentStyle[name];
+            }
+        }
+
+        window.onload = function(){
+            var box = document.getElementById('box');
+            var btn = document.getElementById('btn');
+            var oldVal;
+            var newVal;
+            var timer;
+            btn.onclick = function(){
+                if(timer){
+                    clearInterval(timer);
+                    timer = undefined;
+                    return;
+                }
+                timer = setInterval(() => {
+                if(parseInt(getStyle(box,'right'))<=0){
+                    clearInterval(timer);
+                    timer = undefined;
+                    return;
+                }
+
+                oldVal =parseInt(getStyle(box,'left'));
+                newVal = oldVal + 10;
+                box.style.left = newVal + 'px';
+            }, 30);
+            }
+           //move(obj,attr,target,speed,callback)
+             move(document.getElementById('box1'),'width',800,50,
+                function(){
+                    move(document.getElementById('box1'),'height',400,50,
+                    function(){
+                        move(document.getElementById('box1'),'width',400,50)
+                    }
+                )
+                }
+             )
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div id="box"></div>
+    <br/>
+    <br/>
+    <div id='box1'></div>
+</body>
+</html>
