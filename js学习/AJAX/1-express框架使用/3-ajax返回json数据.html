@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            const box = document.getElementById('box1');
+            const h = document.getElementsByTagName('h1')[0]
+            box.onkeydown = function(){
+                const xhr = new XMLHttpRequest();
+                xhr.responseType = 'json';
+                xhr.open('GET','http://127.0.0.1:8001/json-server');
+                xhr.send();
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState ===4){
+                        if(xhr.status>=200 && xhr.status<300){
+                            console.log('返回数据成功',xhr.response);
+                            h.innerText = xhr.response.a;
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="box1">
+    <h1></h1>
+</body>
+</html>

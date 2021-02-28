@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+        #btn1{
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id='box1'></div>
+    <button id='btn1'>点击</button>
+    <button id="btn2">取消请求</button>
+    <script>
+        const box = document.querySelector("#box1");
+        const btn = document.querySelector("#btn1");
+        const btn2 = document.getElementById('btn2');
+        let xhr  = null;
+        btn.addEventListener('click',function(){
+            xhr = new XMLHttpRequest();
+            //超时设置
+            xhr.timeout = 2000;
+            //请求超时回调
+            xhr.ontimeout = function(){
+                alert('网络异常，请稍后重试！！')
+            }
+            //网络异常
+            xhr.onerror = function(){
+                console.log('你家网不行呀');
+            }
+            //手动取消请求
+
+
+
+            xhr.open('GET','http://127.0.0.1:8001/delay');
+            xhr.send();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState ==4){
+                    if(xhr.status>=200 && xhr.status<300){
+                        box.innerHTML = xhr.response;
+                    }
+                }
+            }
+        })
+        btn2.onclick = function(){
+            xhr.abort()
+        }
+        </script>
+</body>
+</html>
