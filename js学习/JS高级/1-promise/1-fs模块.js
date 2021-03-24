@@ -5,13 +5,13 @@
  */
 function mineReadFile(path){
     return new Promise((resolve,reject)=>{
-        require('fs').readFile(path,(error,data)=>{
-            if(error) reject(error);
-            resolve(data);
+        require('fs').readFile(path,(err,data)=>{
+            if(err) reject(err);
+            resolve(data.toString());
         })
     })
 }
-mineReadFile('./resource/1.txt').then(
-    val=>console.log(val),
+mineReadFile("./resource/1.txt").then(
+    value=>console.log(value),
     reason=>console.log(reason)
 )

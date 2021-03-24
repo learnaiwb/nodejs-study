@@ -1,0 +1,18 @@
+promise状态的改变：
+    **实例中一个属性：[[PromiseState]]
+        pending ===> resolved/fulfilled 成功
+        pending ===> rejected 失败
+    **实例中另一个属性：[[PromiseResult]]
+        保存异步任务成功失败的结果
+
+api:
+    Promise.resolve() 如果传入的参数为非Promise对象，则返回结果为成功的promise对象；如果
+        传入的参数为Promise对象，则参数的结果决定了resolve的结果
+    Promise.reject() 无论传入什么样的数值包括成功的promise对象，结果都为失败
+    Promise.all() 返回一个新的promise，只有所有的promise都成功才成功，有一个失败就直接失败
+    Promise.race() 第一个完成的promise的结果是最终的结果状态
+
+    promise对象.then() then方法返回的是一个promise对象
+        1.抛出错误 throw 'error'
+        2.返回结果为非promise对象 return 23
+        3.返回结果是一个promise对象 返回结果决定then方法返回对象
